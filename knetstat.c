@@ -199,6 +199,7 @@ static int tcp_seq_show(struct seq_file *seq, void *v) {
 			}
 
 			seq_printf(seq, ",TCP_NODELAY=%d", !!(tcp_sk(sk)->nonagle&TCP_NAGLE_OFF));
+			seq_printf(seq, ",TCP_QUICKACK=%d", !inet_csk(sk)->icsk_ack.pingpong);
 		}
 		seq_printf(seq, "\n");
 	}
